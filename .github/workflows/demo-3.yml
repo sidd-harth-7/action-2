@@ -1,7 +1,6 @@
 name: Workflow Demo
 
 on: 
-  push:
   workflow_dispatch:
 
 jobs:
@@ -14,6 +13,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
     - name: List file
       run: ls

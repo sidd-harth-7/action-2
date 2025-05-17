@@ -3,10 +3,15 @@ name: Workflow Demo
 on: 
   workflow_dispatch:
 
+env:
+  GREETING: "hello"
+      
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Create a text file
+      run: echo "${{ env.GREETING }}, ${{ secrets.WORLD }}!" > hello.txt
     - name: Create a text file
       run: echo "Hello, world!" > hello.txt
     - name: Archive text file
